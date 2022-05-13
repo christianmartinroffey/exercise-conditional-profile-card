@@ -27,7 +27,7 @@ function render(variables = {}) {
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
-  if (variables.includeCover == false) cover = "<div class='cover'></div>";
+  if (variables.includeCover !== true) cover = "<div class='cover'></div>";
 
   // if (variables. socialMediaPosition == "position-right") {}
 
@@ -42,19 +42,19 @@ function render(variables = {}) {
           <h3>${variables.city == null ? "City" : variables.city} ${
     variables.country == null ? "Country" : variables.country
   }</h3>
-          <ul class="position-right">
-            <li>${
-              variables.twitter == null ? "" : variables.twitter
-            }<a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li>${
-              variables.github == "alesanchezr" ? "" : variables.github
-            }<a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li>${
-              variables.linkedin == null ? "" : variables.LinkedIn
-            }<a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li>${
-              variables.instagram == null ? "" : variables.instagram
-            }<a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <ul class="${variables.socialMediaPosition}">
+            <li style = "${variables.twitter == null ? "display:none" : ""}">
+            <a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
+            <li style ="${
+              variables.github == "alesanchezr" ? "display:none" : ""
+            }">
+            <a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
+            <li style ="${
+              variables.linkedin == null ? "display:none" : ""
+            }"><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
+            <li style = "${
+              variables.instagram == null ? "display:none" : ""
+            }"><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
