@@ -29,23 +29,38 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  // if (variables. socialMediaPosition == "position-right") {}
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <h1>${variables.name == null ? "Name" : variables.name} ${
+    variables.lastname == null ? "LastName" : variables.lastname
+  }</h1>
+          <h2> ${variables.role == null ? "Role" : variables.role}</h2>
+          <h3>${variables.city == null ? "City" : variables.city} ${
+    variables.country == null ? "Country" : variables.country
+  }</h3>
           <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+            <li>${
+              variables.twitter == null ? "" : variables.twitter
+            }<a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
+            <li>${
+              variables.github == "alesanchezr" ? "" : variables.github
+            }<a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
+            <li>${
+              variables.linkedin == null ? "" : variables.LinkedIn
+            }<a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
+            <li>${
+              variables.instagram == null ? "" : variables.instagram
+            }<a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
 }
 
+//<li style="display:none;"></li>;
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
  */
